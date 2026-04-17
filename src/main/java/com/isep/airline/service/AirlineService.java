@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.io.BufferedReader;
+import java.io.FileReader;
 
 public class AirlineService {
 
@@ -269,5 +271,52 @@ public class AirlineService {
             if (rank > 5) break;
         }
         System.out.println();
+    }
+
+        public void importFlightsFromCSV(String filePath) {
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+
+            String line;
+            while ((line = br.readLine()) != null) {
+
+                String[] data = line.split(";");
+
+                if (data.length < 5) continue;
+
+                String flightNumber = data[0];
+                String originName = data[1];
+                String destinationName = data[2];
+                String date = data[3];
+                String time = data[4];
+
+                Airport origin = findAirportByName(originName);
+                if (origin == null) {
+                    origin = new Airport(originName, originName, "");
+                    addAirport(origin);
+                }
+
+                Airport destination = findAirportByName(destinationName);
+                if (destination == null) {
+                    destination = new Airport(destinationName, destinationName, "");
+                    addAirport(destination);
+                }
+
+                Flight f = new Flight();
+                f.setFlightNumber(flightNumber);
+                f.setOrigin(origin);
+                f.setDestination(destination);
+
+                f.setDepartureTime(LocalDateTime.now());
+                f.setArrivalDateTime(LocalDateTime.now().plusHours(2));
+                f.setStatus("PLANNED");
+
+                addFlight(f);
+            }
+
+            System.out.println("Import CSV terminé.");
+
+        } catch (Exception e) {
+            System.out.println("Erreur lecture CSV : " + e.getMessage());
+        }
     }
 }
