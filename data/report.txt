@@ -1,0 +1,8 @@
+===== RAPPORT D'ACTIVITE =====
+Nombre de vols : 3
+Passagers transportes : 1
+Revenus estimes : 200.0 euros
+Nombre d'avions : 3
+Nombre d'employes : 4
+Nombre de reservations : 3
+==============================

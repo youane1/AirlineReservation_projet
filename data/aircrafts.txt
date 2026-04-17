@@ -1,0 +1,3 @@
+F-HXYZ;Airbus A380;500
+F-ABCD;Boeing 777;300
+F-EFGH;Airbus A320;180

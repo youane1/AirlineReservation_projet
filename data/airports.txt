@@ -1,0 +1,3 @@
+Charles de Gaulle;Paris;Aeroport international de Paris
+JFK;New York;John F Kennedy International Airport
+Narita;Tokyo;Aeroport principal de Tokyo

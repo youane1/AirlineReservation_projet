@@ -1,0 +1,3 @@
+P001;Alice Durand;3 rue Paris;alice@mail.fr;FR12345
+P002;Bob Morel;8 av Lyon;bob@mail.fr;FR67890
+P003;Claire Petit;15 bd Nice;claire@mail.fr;FR11111
